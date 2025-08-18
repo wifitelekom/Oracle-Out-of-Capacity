@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  oci-bot:
+    build: .
+    container_name: oci-occ-bot
+    restart: unless-stopped
+    ports:
+      - "5000:5000"  # Web dashboard port
+    volumes:
+      # Mount configuration and keys
+      - ./configuration.ini:/app/configuration.ini:ro
+      - ./bullvar.pem:/app/bullvar.pem:ro  # Adjust path as needed
+      
+      # Mount logs directory for persistence
+      - ./logs:/app/logs
+      
+      # Optional: Mount backup directory
+      - ./backup:/app/backup
+    environment:
+      - TZ=Europe/Berlin  # Set your timezone
+      - PYTHONUNBUFFERED=1
+    networks:
+      - oci-bot-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  oci-bot-network:
+    driver: bridge
+
+# Optional: Add nginx reverse proxy
+# nginx:
+#   image: nginx:alpine
+#   container_name: oci-bot-nginx
+#   restart: unless-stopped
+#   ports:
+#     - "80:80"
+#     - "443:443"
+#   volumes:
+#     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#     - ./ssl:/etc/nginx/ssl:ro
+#   depends_on:
+#     - oci-bot
+#   networks:
+#     - oci-bot-network
