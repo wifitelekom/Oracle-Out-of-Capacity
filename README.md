@@ -2,6 +2,9 @@
 Oracle Resolving Out of Host Capacity error
 # 🚀 OCI OCC Fix Bot - Deployment Guide
 
+<img width="1896" height="895" alt="resim" src="https://github.com/user-attachments/assets/f5b5b7de-c5e7-459b-822e-fa40dcbda323" />
+
+
 ## 📋 Prerequisites
 
 - Python 3.8 or higher
