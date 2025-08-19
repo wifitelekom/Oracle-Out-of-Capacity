@@ -1,0 +1,41 @@
+# OCI OCC Fix Bot Requirements
+# Python 3.8+ required
+# Install: pip install -r requirements.txt
+
+# Core OCI SDK
+oci>=2.126.0
+
+# Telegram Bot API
+pyTelegramBotAPI>=4.14.0
+
+# Web Dashboard Requirements
+Flask>=2.3.0
+flask-cors>=4.0.0
+
+# Additional Dependencies
+certifi>=2023.7.22
+cffi>=1.15.1
+charset-normalizer>=3.2.0
+click>=8.1.7
+cryptography>=41.0.3
+idna>=3.4
+itsdangerous>=2.1.2
+Jinja2>=3.1.2
+MarkupSafe>=2.1.3
+pycparser>=2.21
+pyOpenSSL>=23.2.0
+python-dateutil>=2.8.2
+pytz>=2023.3
+requests>=2.31.0
+six>=1.16.0
+urllib3>=2.0.4
+Werkzeug>=2.3.7
+
+# Optional - For better performance
+blinker>=1.6.2
+python-dotenv>=1.0.0
+
+# Optional - For async support (if needed in future)
+# eventlet>=0.33.3
+# gevent>=23.7.0
+# greenlet>=2.0.2
