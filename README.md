@@ -41,7 +41,6 @@ pip install -r requirements.txt
 mkdir -p logs backup
 
 # 5. Configure the bot
-cp configuration.ini.sample configuration.ini
 nano configuration.ini  # Edit with your credentials
 ```
 
